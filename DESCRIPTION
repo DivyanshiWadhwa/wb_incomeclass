@@ -2,12 +2,12 @@ Package: wbincomeclass
 Title: What the Package Does (One Line, Title Case)
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    person(given = "Divyanshi",
+           family = "Wadhwa",
            role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+           email = "divyanshiw@gmail.com",
+           comment = c(ORCID = ""))
+Description: This package allows users to access World Bank's historical income classifications.
 License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
     license
 Encoding: UTF-8
