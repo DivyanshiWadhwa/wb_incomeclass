@@ -6,22 +6,22 @@
 #' @param endyear To specify a range of years, you'll use endyear to specify the latest year till which you want classifications. Defaults to last. last is a vector for the most recent value available for classifications.
 #' @keywords income classification
 #' @export
-#' @examples dataiwant <- wb_incomeclass(country = c("IND", "PAK", "BGD"), startyear = first, endyear = 2012)
-#' wb_incomeclass()
+#' @examples dataiwant <- wbincomeclass(country = c("IND", "PAK", "BGD"), startyear = first, endyear = 2012)
+#' wbincomeclass()
 
-wb_incomeclass <- function(country = all, startyear = first, endyear = last) {
-  
+wbincomeclass <- function(country = all, startyear = first, endyear = last) {
+
   hist <- googlesheets4::read_sheet("https://docs.google.com/spreadsheets/d/1ose4ar0k3Bfty_fLwYcOfIBKsYv_3GAqiJD41swczOA/edit#gid=744413969") %>%
     rename(countryname = country,
            date = year)
-  
+
   hist <- data.table::setDT(hist)
-  
+
   first <- min(hist$date)
   last <- max(hist$date)
   all <- unique(hist$wb_code)
-  
+
   data <- hist[date >= startyear & date <= endyear & wb_code %in% country,]
-  
-  
+
+
 }
