@@ -9,7 +9,7 @@
 #' @examples dataiwant <- wbincomeclass(country = c("IND", "PAK", "BGD"), startyear = first, endyear = 2012)
 #' wbincomeclass()
 
-wbincomeclass <- function(country = all, startyear = first, endyear = last) {
+wbincomeclass <- function(country = "IND", startyear = 1995, endyear = 2010) {
 
   hist <- googlesheets4::read_sheet("https://docs.google.com/spreadsheets/d/1ose4ar0k3Bfty_fLwYcOfIBKsYv_3GAqiJD41swczOA/edit#gid=744413969")
 
@@ -18,11 +18,11 @@ wbincomeclass <- function(country = all, startyear = first, endyear = last) {
   names(hist)[names(hist) == "country"] = "countryname"
   names(hist)[names(hist) == "year"] = "date"
 
-  first <- min(hist$date)
-  last <- max(hist$date)
-  all <- unique(hist$wb_code)
+#  first <- min(hist$date)
+#  last <- max(hist$date)
+#  all <- unique(hist$wb_code)
 
   data <- hist[date >= startyear & date <= endyear & wb_code %in% country,]
 
-
 }
+
