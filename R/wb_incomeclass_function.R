@@ -19,7 +19,7 @@ wbincomeclass <- function(country = "IND", startyear = 1995, endyear = 2010) {
   last <- max(hist$date)
   all <- unique(hist$wb_code)
 
-  data <- hist[date >= startyear,]
+  data <- hist[wb_code %>% country,]
 #  data <- hist[date >= startyear & date <= endyear & wb_code %in% country,]
 
 }
