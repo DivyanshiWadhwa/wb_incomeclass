@@ -13,13 +13,10 @@ wbincomeclass <- function(country = "IND", startyear = 1995, endyear = 2010) {
 
   hist <- googlesheets4::read_sheet("https://docs.google.com/spreadsheets/d/1ose4ar0k3Bfty_fLwYcOfIBKsYv_3GAqiJD41swczOA/edit#gid=744413969")
 
-#  hist <- data.table::setDT(hist)
-
   first <- min(hist$datayear)
   last <- max(hist$datayear)
   all <- unique(hist$wb_code)
 
-  data <- hist[hist$datayear <= endyear & hist$datayear >= startyear,]
-#  data <- hist[date >= startyear & date <= endyear & wb_code %in% country,]
+  data <- hist[hist$datayear <= endyear & hist$datayear >= startyear & hist$wb_code %in% country,]
 
 }
