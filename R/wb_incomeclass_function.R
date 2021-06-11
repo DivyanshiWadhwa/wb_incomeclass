@@ -11,26 +11,34 @@
 #' @examples data <- wbincomeclass(country = "FRA", startyear = first, endyear = 2012)
 #' wbincomeclass()
 
-wbincomeclass <- function(country = "all", startyear = "first", endyear = "last") {
+wbincomeclass <- function(country = "all", startyear = 1987, endyear = 2019) {
 
   hist <- googlesheets4::read_sheet("https://docs.google.com/spreadsheets/d/1ose4ar0k3Bfty_fLwYcOfIBKsYv_3GAqiJD41swczOA/edit#gid=744413969")
 
-  if (country != "all") {
+  newcache <- wbstats::wb_cache()
+  countries_df <- newcache$countries
+  countries <- countries_df[countries_df$region != "Aggregates",]
+  countrylist <- countries$iso3c
 
-    hist <- hist[hist$wb_code %in% country,]
+  if (country == "all") {
 
-  } else if (startyear != "first") {
+    country <- countrylist
 
-      hist <- hist[hist$datayear >= startyear,]
+  }
 
-    } else if (endyear != "last") {
+  if (startyear == "first") {
 
-        hist <- hist[hist$datayear <= endyear,]
+    startyear <- 1987
 
-      } else {
+  }
 
-      hist <- hist[hist$datayear <= endyear & hist$datayear >= startyear & hist$wb_code %in% country,]
+  if (endyear == "last") {
+
+    endyear <- format(Sys.Date(), "%Y")
+
+  }
+
+    hist <- hist[hist$datayear <= endyear & hist$datayear >= startyear & hist$wb_code %in% country,]
 
     }
 
-}

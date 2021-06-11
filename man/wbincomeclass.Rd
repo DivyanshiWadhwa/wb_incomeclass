@@ -4,7 +4,7 @@
 \alias{wbincomeclass}
 \title{World Bank Income Classification function}
 \usage{
-wbincomeclass(country = "all", startyear = "first", endyear = "last")
+wbincomeclass(country = "all", startyear = 1987, endyear = 2019)
 }
 \arguments{
 \item{country}{Select countries by specifying country code. For example, to get classifications for India, type country = "IND". If you'd like multiple countries, type all country codes in c() function. Defaults to all. all is a vector of all country codes. You can find official country codes here: https://unstats.un.org/unsd/tradekb/knowledgebase/country-code.}
