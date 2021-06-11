@@ -11,19 +11,19 @@
 #' @examples data <- wbincomeclass(country = "FRA", startyear = first, endyear = 2012)
 #' wbincomeclass()
 
-wbincomeclass <- function(country = all, startyear = first, endyear = last) {
+wbincomeclass <- function(country = "all", startyear = "first", endyear = "last") {
 
   hist <- googlesheets4::read_sheet("https://docs.google.com/spreadsheets/d/1ose4ar0k3Bfty_fLwYcOfIBKsYv_3GAqiJD41swczOA/edit#gid=744413969")
 
-  if (country != all) {
+  if (country != "all") {
 
     hist <- hist[hist$wb_code %in% country,]
 
-  } else if (startyear != first) {
+  } else if (startyear != "first") {
 
       hist <- hist[hist$datayear >= startyear,]
 
-    } else if (endyear != last) {
+    } else if (endyear != "last") {
 
         hist <- hist[hist$datayear <= endyear,]
 
