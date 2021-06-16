@@ -3,6 +3,7 @@ This is an R package that allows users to access World Bank's historical income 
 
 ## How to install
 Please follow these steps:
+
 library(devtools)
 
 install.github("DivyanshiWadhwa/wbincomeclass")
