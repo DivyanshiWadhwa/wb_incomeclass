@@ -1,4 +1,4 @@
-# wbincomeclass (World Bank Income Classification)
+# wbincomeclass (World Bank Income Classifications)
 This is an R package that allows users to access World Bank's historical income classifications.
 
 ## How to install
