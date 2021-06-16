@@ -14,8 +14,8 @@ wbincomeclass()
 
 If you want to access historical income classifications for specific years or specific countries, you have three arguments available:
 1. country: Select countries by specifying country code. For example, to get classifications for India, type country = "IND". If you'd like multiple countries, type all country codes in c() function. Defaults to "all". "all" will give classification for all countries. To identify countrycodes, run the following code: d <- displaycountrylist().
-2. startyear To specify a range of years, you'll use startyear to specify the first year from which you want classifications. Defaults to "first". "first" gives the first available year for classifications. The first year of available classifications is 1987.
-3.  endyear To specify a range of years, you'll use endyear to specify the latest year till which you want classifications. Defaults to "last". "last" gives the most recent year available for classifications. Before July 1, the most recent classification available will be 2 years prior to today. After July 1, the most recent classification available will be 1 year prior to today.
+2. startyear: To specify a range of years, you'll use startyear to specify the first year from which you want classifications. Defaults to "first". "first" gives the first available year for classifications. The first year of available classifications is 1987.
+3.  endyear: To specify a range of years, you'll use endyear to specify the latest year till which you want classifications. Defaults to "last". "last" gives the most recent year available for classifications. Before July 1, the most recent classification available will be 2 years prior to today. After July 1, the most recent classification available will be 1 year prior to today.
 
 ## Examples
 To get income classifications for India, Pakistan, Bangladesh starting in 1995 and ending in 2012:
