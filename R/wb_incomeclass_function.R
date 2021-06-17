@@ -13,12 +13,15 @@
 
 wbincomeclass <- function(country = "all", startyear = "first", endyear = "last") {
 
-  hist <- googlesheets4::read_sheet("https://docs.google.com/spreadsheets/d/1ose4ar0k3Bfty_fLwYcOfIBKsYv_3GAqiJD41swczOA/edit#gid=744413969")
+ # income_class <- readxl::read_excel("data/OGHIST-revised.xlsx", sheet = "Historical classifications")
+ # hist <- usethis::use_data(income_class)
+   hist <- income_class
+ # hist <- googlesheets4::read_sheet("https://docs.google.com/spreadsheets/d/1ose4ar0k3Bfty_fLwYcOfIBKsYv_3GAqiJD41swczOA/edit#gid=744413969")
 
-  newcache <- wbstats::wb_cache()
-  countries_df <- newcache$countries
-  countries <- countries_df[countries_df$region != "Aggregates",]
-  countrylist <- countries$iso3c
+#  newcache <- wbstats::wb_cache()
+#  countries_df <- newcache$countries
+#  countries <- countries_df[countries_df$region != "Aggregates",]
+  countrylist <- unique(hist[["wb_code"]])
 
   if (country == "all") {
 

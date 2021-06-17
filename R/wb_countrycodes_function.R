@@ -8,10 +8,8 @@
 
 displaycountrylist <- function() {
 
-  newcache <- wbstats::wb_cache()
-  countries_df <- newcache$countries
-  countries <- countries_df[countries_df$region != "Aggregates",]
-  countrylist <- countries[, c("iso3c", "country")]
+  countrylist <- unique(income_class[, c("wb_code", "countryname")])
+  countrylist <- countrylist[!is.na(countrylist$wb_code) | !is.na(countrylist$wb_code),]
 
   return(countrylist)
 
