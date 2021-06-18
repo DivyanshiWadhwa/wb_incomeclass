@@ -4,7 +4,12 @@
 \alias{wbincomeclass}
 \title{World Bank Income Classification function}
 \usage{
-wbincomeclass(country = "all", startyear = "first", endyear = "last")
+wbincomeclass(
+  country = "all",
+  startyear = "first",
+  endyear = "last",
+  group = "all"
+)
 }
 \arguments{
 \item{country}{Select countries by specifying country code. For example, to get classifications for India, type country = "IND". If you'd like multiple countries, type all country codes in c() function. Defaults to "all". "all" will give classification for all countries. To identify countrycodes, run the following code: d <- displaycountrylist().}
@@ -12,6 +17,8 @@ wbincomeclass(country = "all", startyear = "first", endyear = "last")
 \item{startyear}{To specify a range of years, you'll use startyear to specify the first year from which you want classifications. Defaults to "first". "first" gives the first available year for classifications. The first year of available classifications is 1987.}
 
 \item{endyear}{To specify a range of years, you'll use endyear to specify the latest year till which you want classifications. Defaults to "last". "last" gives the most recent year available for classifications. Before July 1, the most recent classification available will be 2 years prior to today. After July 1, the most recent classification available will be 1 year prior to today.}
+
+\item{group}{Select income group by specifying names of income groups "High income", "Upper middle income", "Lower middle income" and "Low income". For example, to get all countries in the "High income" category, type group = "High income". If you'd like multiple income groups, type all income groups in c() function. Defaults to "all". "all" will give classification for all countries across all income groups.}
 }
 \description{
 This function allows you to get World Bank's historical income classifications
@@ -20,6 +27,7 @@ This function allows you to get World Bank's historical income classifications
 dataiwant <- wbincomeclass(country = c("IND", "PAK", "BGD"), startyear = 1995, endyear = 2012)
 dataimightwant <- wbincomeclass(country = "all", startyear = "first", endyear = "last")
 dataiwillneed <- wbincomeclass(country = "FRA", startyear = "first", endyear = 2012)
+df <- wbincomeclass(startyear = 1995, endyear = 1995, group = c("High income", "Low income"))
 wbincomeclass()
 }
 \keyword{classification}
